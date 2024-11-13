@@ -1,3 +1,4 @@
+import config.Database;
 import entities.TodoList;
 import repositories.TodoListRepository;
 import repositories.TodoListRepositoryImpl;
@@ -10,9 +11,11 @@ import Views.TodoListView;
 
 public class Main {
     public static void main(String[] args) {
-        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
-        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
-        TodoListTerminalView todoListView = new TodoListTerminalView(todoListService);
-        todoListView.run();
+        Database database = new Database("databaseku", "root", "", "localhost", "3306");
+        database.setup();
+//        TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+//        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+//        TodoListTerminalView todoListView = new TodoListTerminalView(todoListService);
+//        todoListView.run();
     }
 }
